@@ -1,7 +1,9 @@
 <h1>Make Your Blog! </h1>
 <h2>블로그 글 목록</h2>
 {% for post in posts %}
-제목 : {{post.title}}
+<a href="{% url 'detail' post.id %}">
+    제목 : {{post.title}}
+</a>
 <br>
 작성자 : {{post.writer}}
 <br>
