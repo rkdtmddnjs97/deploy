@@ -1,0 +1,18 @@
+<h1>글을 수정중입니다.</h1>
+<form action="{% url 'update' post.id %}" method="POST">
+        {% csrf_token %}
+        제목 : <input type="text" name='title' value="{{post.title}}">
+        <br>
+        <br>
+        작성자 : <input type="text" name='writer' value="{{post.writer}}">
+        <br>
+        <br>
+        본문 : <textarea name="body" id="" cols="30" rows="10" placeholder="write your content" >{{post.body}}</textarea>
+        <br>
+        <br>
+        <button type='submit'>작성하기</button>
+
+
+
+</form>
+
