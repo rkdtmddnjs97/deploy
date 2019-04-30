@@ -1,4 +1,5 @@
 <h1>Make Your Blog! </h1>
+<a href="{% url 'new'%}">새 글 작성하기 </a>
 <h2>블로그 글 목록</h2>
 {% for post in posts %}
 <a href="{% url 'detail' post.id %}">
