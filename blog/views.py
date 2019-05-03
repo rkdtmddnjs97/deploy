@@ -37,3 +37,5 @@ def delete(request, post_id):
     delete_post=Post.objects.get(id=post_id)
     delete_post.delete()
     return redirect('home')
+
+    
