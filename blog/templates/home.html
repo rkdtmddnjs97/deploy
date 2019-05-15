@@ -1,13 +1,24 @@
-<h1>Make Your Blog! </h1>
-<a href="{% url 'new'%}">새 글 작성하기 </a>
-<h2>블로그 글 목록</h2>
-{% for post in posts %}
-<a href="{% url 'detail' post.id %}">
-    제목 : {{post.title}}
-</a>
-<br>
-작성자 : {{post.writer}}
-<br>
-{{post.pub_date}}
-<hr>
-{% endfor %}
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Make Your Blog! </h1>
+    <a href="{% url 'new'%}">새 글 작성하기 </a>
+    <h2>블로그 글 목록</h2>
+    <hr>
+    <div class="card-columns">
+        {% for post in posts %}
+        <div class="card ">
+            <a href="{% url 'detail' post.id %}">
+                <b>제목 : {{post.title}}</b>
+            </a>
+            <hr>
+            작성자 : {{post.writer}}
+            <hr>
+            {{post.pub_date}}
+        </div>
+
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

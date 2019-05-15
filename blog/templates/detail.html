@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>Detail Post</h1>
 
 <p>
@@ -15,3 +17,5 @@
 <br>
 <a href="{% url 'edit' post.id %}">수정하기</a>
 <a href="{%url 'delete' post.id %}">삭제하기</a>
+
+{%endblock%}
