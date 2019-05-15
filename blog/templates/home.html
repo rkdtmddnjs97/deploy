@@ -5,9 +5,9 @@
     <a href="{% url 'new'%}">새 글 작성하기 </a>
     <h2>블로그 글 목록</h2>
     <hr>
-    <div class="card-columns">
+    <div class="row">
         {% for post in posts %}
-        <div class="card ">
+        <div class="card col-4">
             <a href="{% url 'detail' post.id %}">
                 <b>제목 : {{post.title}}</b>
             </a>
