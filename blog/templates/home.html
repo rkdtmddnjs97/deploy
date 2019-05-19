@@ -5,21 +5,29 @@
     <h1>Make Your Blog! </h1>
     {% if user.is_authenticated %}
     <a href="{% url 'new'%}">새 글 작성하기 </a>
+    <ul>your liked post</ul>
+    {%for post in liked_post %}
+    <a href="{% url 'detail' post.id %}">
+        <li>{{post.title}}</li>
+    </a>
+    {%endfor%}
+
     {% endif %}
     <h2>블로그 글 목록</h2>
     <hr>
     <div class="row">
         {% for post in blogs %}
-        <div class="card col-4">
-            <a href="{% url 'detail' post.id %}">
-                <b>제목 : {{post.title}}</b>
-            </a>
-            <hr>
-            작성자 : {{post.writer}}
-            <hr>
-            {{post.pub_date}}
+        <div class="col-4">
+            <div class="card">
+                <a href="{% url 'detail' post.id %}">
+                    <b>제목 : {{post.title}}</b>
+                </a>
+                <hr>
+                작성자 : {{post.writer}}
+                <hr>
+                {{post.pub_date}}
+            </div>
         </div>
-
 
         {% endfor %}
     </div>
@@ -27,11 +35,11 @@
     <a href="?page=1">First</a>
     <a href="?page={{blogs.previous_page_number}}">Previous</a>
     {%endif%}
-    
+
     <span>{{blogs.number}}</span>
     <span>of</span>
     <span>{{blogs.paginator.num_pages}}</span>
-    
+
     {%if blogs.has_next%}
     <a href="?page={{blogs.next_page_number}}">Next</a>
     <a href="?page={{blogs.paginator.num_pages}}">Last</a>
