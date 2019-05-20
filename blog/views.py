@@ -16,8 +16,7 @@ def home(request):
     blogs = paginator.get_page(page)
     return render(request, 'home.html', {'blogs':blogs,
                                         'liked_post':my_liked_post
-                                        }
-                                        )
+                                        })
 
 def detail(request,post_id):
     post = get_object_or_404(Post, pk=post_id)
